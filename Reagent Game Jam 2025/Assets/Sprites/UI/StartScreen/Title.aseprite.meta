@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6377f886814ef0b4a9f9fc4bac59e77a
+guid: b2d36a041a7b9be40a12518287e6bccb
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638799754735528763
+  platformSettingsDirtyTick: 638799792991344656
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Play
+  - name: Title
     originalName: 
-    pivot: {x: 0.5735294, y: -1}
+    pivot: {x: 0.5, y: -2.5714285}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 68
-      height: 16
-    spriteID: 40d7ceb20d523fd4bb35eda300bbd2d2
+      width: 276
+      height: 21
+    spriteID: 89508efd66075044f8c9504d75cbd5b0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,21 +147,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 69878724
-    name: Play
+    guid: -1859700480
+    name: Title
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Play
+    - name: Title
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 81
-        y: 16
-        width: 68
-        height: 16
-      spriteId: 40d7ceb20d523fd4bb35eda300bbd2d2
+        x: 22
+        y: 54
+        width: 276
+        height: 21
+      spriteId: 89508efd66075044f8c9504d75cbd5b0
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -204,5 +204,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 240, y: 48}
-  previousTextureSize: {x: 128, y: 32}
+  canvasSize: {x: 320, y: 128}
+  previousTextureSize: {x: 512, y: 32}
