@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cc44079-42ac-4518-b730-9a2df9910db8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Sprites/Sprite-0004.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../Sprites/Sprite-0004.aseprite.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Sprites/Tilemap/Circuit.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../Sprites/Tilemap/Circuit.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/../../UserSettings/Search.settings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Scenes/Jesse.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/Jesse.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sprites/UI/SettingsScreen/Back.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/../Sprites/UI/SettingsScreen/Back.aseprite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sprites/UI/SettingsScreen/Back.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../Sprites/UI/SettingsScreen/Back.aseprite.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744373779700</updated>
-      <workItem from="1744373780776" duration="2714000" />
+      <workItem from="1744373780776" duration="3344000" />
     </task>
     <servers />
   </component>

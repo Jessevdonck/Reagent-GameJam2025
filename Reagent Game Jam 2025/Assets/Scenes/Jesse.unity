@@ -735,6 +735,8 @@ GameObject:
   - component: {fileID: 584957066}
   - component: {fileID: 584957065}
   - component: {fileID: 584957064}
+  - component: {fileID: 584957070}
+  - component: {fileID: 584957069}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -826,6 +828,44 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &584957069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584957063}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.10323959, g: 0.1509434, b: 0.13097437, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &584957070
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584957063}
+  m_CullTransparentMesh: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,6 +987,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1407257165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1407257167}
+  - component: {fileID: 1407257166}
+  m_Layer: 0
+  m_Name: SparkleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1407257166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407257165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8252d949d3840ce4085b7f91f20af54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sparklePrefab: {fileID: 4989494158541386135, guid: be4c686d528b60d4bb9e62c3ef47c844, type: 3}
+  canvas: {fileID: 584957066}
+  numberOfSparkles: 10
+--- !u!4 &1407257167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407257165}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 569.93756, y: 628.6568, z: -0.50690615}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1695161867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1223,6 @@ GameObject:
   - component: {fileID: 1831212084}
   - component: {fileID: 1831212086}
   - component: {fileID: 1831212085}
-  - component: {fileID: 1831212087}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1201,26 +1287,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831212083}
   m_CullTransparentMesh: 1
---- !u!114 &1831212087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831212083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf59652d54025c458f219fe748e809d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  intensity: 0.3
-  speed: 1
-  frequency: 2
-  rectTransform: {fileID: 0}
-  tmpText: {fileID: 0}
-  uiText: {fileID: 0}
-  uiImage: {fileID: 0}
-  uiButton: {fileID: 0}
 --- !u!1 &2005599523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,3 +1428,4 @@ SceneRoots:
   - {fileID: 584957067}
   - {fileID: 57764526}
   - {fileID: 1760329066}
+  - {fileID: 1407257167}
