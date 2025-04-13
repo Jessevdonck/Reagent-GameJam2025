@@ -1,6 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;  
-using UnityEngine.UI;  
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,15 +8,15 @@ public class UIManager : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Main");  
+        SceneManager.LoadScene("Main");
     }
-    
+
     public void ShowSettings()
     {
         menuScreen.SetActive(false);
-        settingsScreen.SetActive(true);  
+        settingsScreen.SetActive(true);
     }
-    
+
     public void QuitGame()
     {
         Debug.Log("Game wordt gesloten!");
