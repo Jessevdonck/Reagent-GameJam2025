@@ -1,61 +1,48 @@
 using UnityEngine;
-using System.Collections.Generic;
-using InventorySystem;
-
+using System;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> levelPrefabs;
-    [SerializeField] private Transform levelParent;
-    [SerializeField] private CameraController camController;
+    public static LevelManager Instance;
 
-    private int currentLevelIndex = -1;
-    private GameObject currentLevel;
+    [SerializeField] private LevelData[] levels;
+    private int currentLevelIndex = 0;
 
-    void Start()
+    private void Awake()
     {
-        LoadNextLevel();
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
-    public void LoadNextLevel()
+    private void Start()
     {
+        LoadLevel(currentLevelIndex);
+    }
+
+    public void GoalReached()
+    {
+        Debug.Log("Goal reached!");
         currentLevelIndex++;
 
-        if (currentLevelIndex >= levelPrefabs.Count)
-        {
-            Debug.Log("All levels completed!");
-            return;
-        }
-
-        if (currentLevel != null)
-            Destroy(currentLevel);
-
-        currentLevel = Instantiate(levelPrefabs[currentLevelIndex], levelParent);
-
-        // Camera uitzoomen als het nodig is
-        camController.FocusOn(currentLevel.transform, zoomOut: ShouldZoom(currentLevelIndex));
-
-        // Welke componenten moeten unlocken
-        UnlockComponentsForLevel(currentLevelIndex);
+        if (currentLevelIndex < levels.Length)
+            LoadLevel(currentLevelIndex);
+        else
+            Debug.Log("All levels complete!");
     }
 
-    private bool ShouldZoom(int index)
+    private void LoadLevel(int index)
     {
-        // Welke levels moeten uitzoomen
-        return (index == 1 || index == 3);
+        Debug.Log("Loading Level " + index);
+        ClearLevel();
+
+        Instantiate(levels[index].levelPrefab);
     }
 
-    private void UnlockComponentsForLevel(int index)
+    private void ClearLevel()
     {
-        // OM TE TESTEN, later is dit via data bestandje ofzo
-        var inv = FindObjectOfType<Inventory>();
-        if (index == 1)
+        foreach (var obj in GameObject.FindGameObjectsWithTag("Level"))
         {
-            inv.addResistor(5);
-        }
-        else if (index == 2)
-        {
-            inv.addSplitter(3);
+            Destroy(obj);
         }
     }
 }
