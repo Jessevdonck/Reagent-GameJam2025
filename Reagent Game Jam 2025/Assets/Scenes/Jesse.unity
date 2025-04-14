@@ -385,30 +385,30 @@ Tilemap:
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
-      e00: 1
+      e00: 0.2682972
       e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
+      e02: 1e-45
+      e03: -4.6044235
+      e10: 7.48e-43
+      e11: 0
       e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
+      e13: 7.47e-43
+      e20: -1.9617028e+29
+      e21: -4.6044235
+      e22: 0.2682972
+      e23: 1.2866377e-28
+      e30: 4.5911e-41
+      e31: 7.47e-43
+      e32: 7.48e-43
+      e33: 7.48e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 1, g: 1, b: 1, a: 1}
+    m_Data: {r: 1.2866329e-28, g: 1.2866329e-28, b: 1.2866329e-28, a: 1.2866329e-28}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -2, y: -4, z: 0}
-  m_Size: {x: 9, y: 8, z: 1}
+  m_Origin: {x: -18, y: -18, z: 0}
+  m_Size: {x: 41, y: 40, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -716,6 +716,8 @@ GameObject:
   - component: {fileID: 1655820296}
   - component: {fileID: 1655820295}
   - component: {fileID: 1655820294}
+  - component: {fileID: 1655820298}
+  - component: {fileID: 1655820297}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -736,10 +738,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wire: {fileID: 0}
-  resistor: {fileID: 0}
-  extender: {fileID: 0}
-  splitter: {fileID: 0}
-  combiner: {fileID: 0}
 --- !u!114 &1655820295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,6 +771,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1655820297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655820293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d60a836223a3346b91ca2636c75ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1655820298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655820293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7104573416fe62b4ca8421621c0383e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - {fileID: 11400000, guid: 40e1743d8a4e00e4590b468740013e41, type: 2}
+  - {fileID: 11400000, guid: 48194e9ab163de94db0e08de03893409, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
