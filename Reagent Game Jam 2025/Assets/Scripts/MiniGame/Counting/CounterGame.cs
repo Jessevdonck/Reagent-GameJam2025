@@ -1,31 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace MiniGame
 {
 
-
+    
     public class CounterGame : MonoBehaviour
     {
         [SerializeField] private List<GameObject> prefabs;
+        private List<GameObject> gameObjects;
         private Vector2 startPosition = new Vector2(-25f, 5f);
         public float xSpacing = 10f;
         public float ySpacing = 10f;
         
         private static CounterGame instance;
         private int count;
-
+        
         public int getCount()
         {
             return count;
         }
         
         private bool canClick;
-
+            
         public bool getCanClick()
         {
             return canClick;
@@ -38,12 +39,33 @@ namespace MiniGame
                 Debug.Log("finish");
             }
         }
+        
+
+        private void destroyAllButtons()
+        {
+            foreach (GameObject go in gameObjects)
+            {
+                Destroy(go);
+            }
+        }
+        public IEnumerator SwitchEverySeconds()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(2);
+                destroyAllButtons();
+                spawnCounterComponents();
+            }
+            
+        }
 
         void Start()
         {
+            gameObjects = new List<GameObject>();
             count = 0;
             spawnCounterComponents();
             canClick = true;
+            StartCoroutine(SwitchEverySeconds());
         }
 
         void spawnCounterComponents()
@@ -71,6 +93,7 @@ namespace MiniGame
                 );
                 
                 GameObject instance = Instantiate(prefabs[numbers[i]], spawnPos, Quaternion.identity);
+                gameObjects.Add(instance);
                 CounterComponent counter = instance.GetComponent<CounterComponent>();
                 
             }
@@ -107,10 +130,11 @@ namespace MiniGame
         
         public IEnumerator DisableClickTemporarily()
         {
-            Debug.Log("wrong");
+            Debug.Log("no click");
             canClick = false;
             yield return new WaitForSeconds(3f);
             canClick = true;
+            Debug.Log("can click");
         }
 
         

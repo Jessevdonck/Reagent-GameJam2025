@@ -834,7 +834,36 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      candles_animated_0: 4928261547544162851
+      candles_animated_1: -5827626159837541435
+      candles_animated_10: -2483173339149955885
+      candles_animated_11: 7957750926815583315
+      candles_animated_12: -858434046667597362
+      candles_animated_13: 9207517038085477457
+      candles_animated_14: -4681230693989847415
+      candles_animated_15: -6317146195469178515
+      candles_animated_16: -887888081408600888
+      candles_animated_17: -3743603864822438302
+      candles_animated_18: 2896915300438106017
+      candles_animated_19: -7240235908880521340
+      candles_animated_2: 4954853722374455940
+      candles_animated_20: -5830038609193260012
+      candles_animated_21: -2455454580178751495
+      candles_animated_22: -4517619806310984434
+      candles_animated_23: -3281947743995829040
+      candles_animated_24: -2992784550799632369
+      candles_animated_25: 5548579090425936386
+      candles_animated_26: 97695587121234435
+      candles_animated_27: 687315457944070956
+      candles_animated_28: -5935551999099668930
+      candles_animated_3: 2503551235079801498
+      candles_animated_4: 1976931273897798545
+      candles_animated_5: 8788066661573011476
+      candles_animated_6: 5723274607742876136
+      candles_animated_7: -8489151853861131699
+      candles_animated_8: 5324940839074253876
+      candles_animated_9: 1821010220937399340
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,7 +14,7 @@ public class CounterComponent : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(CounterGame.getInstance().getCount());
+        
         if (!CounterGame.getInstance().getCanClick())return;
         
         if (CounterGame.getInstance().getCount() != number -1 )
