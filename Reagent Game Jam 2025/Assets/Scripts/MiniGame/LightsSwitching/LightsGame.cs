@@ -10,7 +10,7 @@ namespace MiniGame.LightsSwitching
         [SerializeField] private GameObject light;
         private Vector3 spawnPos;
         private Light[][] lights;
-
+        private int steps = 3;
         private static LightsGame instance;
 
         public static LightsGame getInstance()
@@ -21,7 +21,7 @@ namespace MiniGame.LightsSwitching
         private void Start()
         {
             spawnPos = new Vector3(-20f, 20f, 0f);
-            lights = new Light[6][];
+            lights = new Light[5][];
             spawnLights();
         }
 
@@ -58,7 +58,7 @@ namespace MiniGame.LightsSwitching
         {
             for (int i = 0; i < 5; i++)
             {
-                lights[i] = new Light[6];
+                lights[i] = new Light[5];
                 for (int j = 0; j < 5; j++)
                 {
                     Vector3 newPos = new Vector3(spawnPos.x + j * 10f, spawnPos.y - i * 10, spawnPos.z);
@@ -73,7 +73,7 @@ namespace MiniGame.LightsSwitching
                 }
             }
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < steps; i++)
             {
                 int x = Random.Range(0, 5); // Assuming 5 rows
                 int y = Random.Range(0, 5); // Assuming 6 columns
