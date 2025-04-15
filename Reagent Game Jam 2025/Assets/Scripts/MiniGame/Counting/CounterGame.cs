@@ -7,19 +7,22 @@ using Random = UnityEngine.Random;
 
 namespace MiniGame
 {
-
-    
-    public class CounterGame : MonoBehaviour
+    public class CounterGame : MonoBehaviour, IMinigame
     {
         [SerializeField] private List<GameObject> prefabs;
         private List<GameObject> gameObjects;
         private Vector2 startPosition = new Vector2(-25f, 5f);
         public float xSpacing = 10f;
         public float ySpacing = 10f;
+        private Interactable activator;
         
         private static CounterGame instance;
         private int count;
         
+        public void SetActivator(Interactable source)
+        {
+            activator = source;
+        }
         public int getCount()
         {
             return count;
