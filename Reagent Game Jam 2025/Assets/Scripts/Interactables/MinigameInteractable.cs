@@ -1,4 +1,4 @@
-﻿using MiniGame;
+using MiniGame;
 using Unity.Mathematics;
 using UnityEngine;
 
