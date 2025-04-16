@@ -26,6 +26,15 @@ public class GameManager : MonoBehaviour
         UpdateMoneyUI(); 
     }
 
+    private void Start()
+    {
+        if (moneyText == null)
+        {
+            
+        }
+            
+    }
+
     public void AddMoney(int amount)
     {
         money += amount;

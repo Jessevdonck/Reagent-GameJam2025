@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Jesse");
     }
 
     public void ShowSettings()
