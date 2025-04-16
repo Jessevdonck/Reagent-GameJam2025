@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3036890301463716272}
   - component: {fileID: 3815533901365022712}
   - component: {fileID: 443113388287819227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CountingButton12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8, y: 8}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 8, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
