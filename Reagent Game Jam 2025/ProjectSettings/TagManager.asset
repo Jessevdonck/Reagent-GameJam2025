@@ -8,6 +8,7 @@ TagManager:
   - Connector
   - Minigame
   - Dialogue
+  - UI
   layers:
   - Default
   - TransparentFX
