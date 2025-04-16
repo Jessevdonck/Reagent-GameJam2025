@@ -22,12 +22,7 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
         Vector3 worldCenter = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 10f));
 
         activeMinigame = Instantiate(minigamePrefab, worldCenter,quaternion.identity);
-
-        var minigame = activeMinigame.GetComponent<IMinigame>();
-        if (minigame != null)
-        {
-            minigame.SetActivator(this);
-        }
+        
     }
 
     public void DestroyAllButtons()

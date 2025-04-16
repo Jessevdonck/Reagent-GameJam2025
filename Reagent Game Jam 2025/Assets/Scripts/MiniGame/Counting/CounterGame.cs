@@ -62,7 +62,7 @@ namespace MiniGame
         {
             while (true)
             {
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1f);
                 destroyAllButtons();
                 spawnCounterComponents();
             }
@@ -146,7 +146,7 @@ namespace MiniGame
             
             canClick = false;
             GameObject wrong = Instantiate(wrongScreen, this.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
             Destroy(wrong);
             canClick = true;
             
