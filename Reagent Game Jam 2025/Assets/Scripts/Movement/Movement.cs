@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(interactKey))
         {
+            Debug.Log("pressed E");
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactRange);
             foreach (var hit in hits)
             {
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
                 if (interactable != null)
                 {
                     interactable.Interact();
+                    Debug.Log("pressed E2");
                     activeInteractable = interactable; 
                     break;
                 }

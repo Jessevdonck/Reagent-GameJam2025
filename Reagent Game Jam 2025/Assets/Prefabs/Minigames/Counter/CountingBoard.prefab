@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 365833501242981035}
   - component: {fileID: 2167250536056101790}
   - component: {fileID: 6660865737688636447}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: CountingBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 12
   m_Sprite: {fileID: -1966173242082492948, guid: 7cb6808baa47941a99c1e6265a6217cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -113,5 +113,5 @@ MonoBehaviour:
   - {fileID: 7155173827683751885, guid: 65986c68f2dca471fb3ae4cf11614c27, type: 3}
   - {fileID: 61754518177650628, guid: ed6f12d29dd5a4510a90d85989cc0d06, type: 3}
   - {fileID: 6496835093860313621, guid: 39c505ee27a664b6297de651ecdc3f7e, type: 3}
-  xSpacing: 10
-  ySpacing: 10
+  xSpacing: 1.25
+  ySpacing: 1.25

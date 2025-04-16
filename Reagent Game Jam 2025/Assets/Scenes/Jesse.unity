@@ -7462,7 +7462,7 @@ PrefabInstance:
     - target: {fileID: 8938924343456862184, guid: 23106418f891dab47a3a33940075f343, type: 3}
       propertyPath: minigamePrefab
       value: 
-      objectReference: {fileID: 3248799385707800624, guid: 2b41e295e39cd034ba4191e50fbdde31, type: 3}
+      objectReference: {fileID: 4374778333693708692, guid: 2b41e295e39cd034ba4191e50fbdde31, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

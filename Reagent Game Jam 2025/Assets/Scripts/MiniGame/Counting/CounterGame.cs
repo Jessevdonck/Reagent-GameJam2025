@@ -71,6 +71,7 @@ namespace MiniGame
             spawnCounterComponents();
             canClick = true;
             StartCoroutine(SwitchEverySeconds());
+            
         }
 
         void spawnCounterComponents()
@@ -116,6 +117,8 @@ namespace MiniGame
         private void Awake()
         {
             instance = this;
+            var position = this.transform.position;
+            startPosition = new Vector2(position.x + startPosition.x, position.y + startPosition.y);
         }
 
         public static CounterGame getInstance()

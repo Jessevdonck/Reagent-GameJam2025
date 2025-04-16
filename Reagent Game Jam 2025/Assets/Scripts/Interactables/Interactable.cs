@@ -1,4 +1,5 @@
 using MiniGame;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -18,15 +19,16 @@ public class Interactable : MonoBehaviour
 
     void OpenMinigame()
     {
-        Canvas canvas = FindObjectOfType<Canvas>();
-        if (canvas == null)
-        {
-            Debug.LogError("Geen Canvas gevonden in de scene!");
-            return;
-        }
+        // Canvas canvas = FindObjectOfType<Canvas>();
+        // if (canvas == null)
+        // {
+        //     Debug.LogError("Geen Canvas gevonden in de scene!");
+        //     return;
+        // }
+        Vector3 worldCenter = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 10f));
 
-        activeMinigame = Instantiate(minigamePrefab);
-
+        activeMinigame = Instantiate(minigamePrefab, worldCenter,quaternion.identity);
+        Debug.Log("pressed E3");
         // Interface check
         var minigame = activeMinigame.GetComponent<IMinigame>();
         if (minigame != null)
