@@ -11,9 +11,9 @@ namespace MiniGame
     {
         [SerializeField] private List<GameObject> prefabs;
         private List<GameObject> gameObjects;
-        private Vector2 startPosition = new Vector2(-25f, 5f);
-        public float xSpacing = 10f;
-        public float ySpacing = 10f;
+        private Vector2 startPosition = new Vector2(-3.125f, 0.625f);
+        public float xSpacing = 1.25f;
+        public float ySpacing = 1.25f;
         private Interactable activator;
         
         private static CounterGame instance;
@@ -42,6 +42,8 @@ namespace MiniGame
                 Debug.Log("finish");
             }
         }
+
+        
         
 
         private void destroyAllButtons()
