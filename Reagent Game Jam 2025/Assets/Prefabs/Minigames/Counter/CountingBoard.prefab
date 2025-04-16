@@ -115,3 +115,4 @@ MonoBehaviour:
   - {fileID: 6496835093860313621, guid: 39c505ee27a664b6297de651ecdc3f7e, type: 3}
   xSpacing: 1.25
   ySpacing: 1.25
+  wrongScreen: {fileID: 3144101023060763935, guid: cbb46d2c9a33c8e45a09d2e21ef5ebdf, type: 3}

@@ -9,20 +9,34 @@ namespace MiniGame.LightsSwitching
     {
         [SerializeField] private GameObject light;
         private Vector3 spawnPos;
+        private List<GameObject> gameObjects;
         private Light[][] lights;
-        private int steps = 3;
+        private int steps = 5;
         private static LightsGame instance;
 
-        public static LightsGame getInstance()
+        public static LightsGame GetInstance()
         {
             return instance;
         }
 
+        public void ResetLights()
+        {
+            foreach (GameObject o in gameObjects)
+            {
+                Destroy(o);
+            }
+            
+            lights = new Light[5][];
+            SpawnLights();
+        }
+
         private void Start()
         {
-            spawnPos = new Vector3(-20f, 20f, 0f);
+            spawnPos = new Vector3(-2.5f, 2.5f, 0f);
             lights = new Light[5][];
-            spawnLights();
+            gameObjects = new List<GameObject>();
+            SpawnLights();
+            
         }
 
         private void Awake()
@@ -30,42 +44,43 @@ namespace MiniGame.LightsSwitching
             instance = this;
         }
 
-        public void switchLight(int x, int y)
+        public void SwitchLight(int x, int y)
         {
-            lights[x][y].switchLight();
+            lights[x][y].SwitchLight();
             if (x > 0)
             {
-                lights[x - 1][y].switchLight();
+                lights[x - 1][y].SwitchLight();
             }
 
             if (x < 4)
             {
-                lights[x + 1][y].switchLight();
+                lights[x + 1][y].SwitchLight();
             }
 
             if (y > 0)
             {
-                lights[x][y - 1].switchLight();
+                lights[x][y - 1].SwitchLight();
             }
 
             if (y < 4)
             {
-                lights[x][y + 1].switchLight();
+                lights[x][y + 1].SwitchLight();
             }
         }
 
-        void spawnLights()
+        void SpawnLights()
         {
             for (int i = 0; i < 5; i++)
             {
                 lights[i] = new Light[5];
                 for (int j = 0; j < 5; j++)
                 {
-                    Vector3 newPos = new Vector3(spawnPos.x + j * 10f, spawnPos.y - i * 10, spawnPos.z);
+                    Vector3 newPos = new Vector3(spawnPos.x + j * 1.25f, spawnPos.y - i * 1.25f, spawnPos.z);
                     GameObject instance = Instantiate(light, newPos, Quaternion.identity);
+                    gameObjects.Add(instance);
                     Light l = instance.GetComponent<Light>();
-                    l.setX(i);
-                    l.setY(j);
+                    l.SetX(i);
+                    l.SetY(j);
                     lights[i][j] = l;
 
 
@@ -75,9 +90,9 @@ namespace MiniGame.LightsSwitching
 
             for (int i = 0; i < steps; i++)
             {
-                int x = Random.Range(0, 5); // Assuming 5 rows
-                int y = Random.Range(0, 5); // Assuming 6 columns
-                switchLight(x,y);
+                int x = Random.Range(0, 5);
+                int y = Random.Range(0, 5);
+                SwitchLight(x,y);
             }
 
         }

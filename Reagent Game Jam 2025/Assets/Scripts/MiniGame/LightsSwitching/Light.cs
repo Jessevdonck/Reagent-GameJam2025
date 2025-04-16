@@ -29,44 +29,44 @@ namespace MiniGame.LightsSwitching
         private void Awake()
         {
             sr = GetComponent<SpriteRenderer>();
-            setLightOn();
+            SetLightOn();
         }
 
         private void OnMouseDown()
         {
-            LightsGame.getInstance().switchLight(x, y);
+            LightsGame.GetInstance().SwitchLight(x, y);
             Debug.Log("x :" + x + "y :" + y);
         }
 
-        public void switchLight()
+        public void SwitchLight()
         {
             if (isLight)
             {
-                setLightOff();
+                SetLightOff();
                 
             }
             else
             {
-                setLightOn();
+                SetLightOn();
             }
         }
         
-        public void setLightOn()
+        public void SetLightOn()
         {
             sr.sprite = lightOn;
             isLight = true;
         }
-        public void setLightOff()   
+        public void SetLightOff()   
         {
             sr.sprite = lightOff;
             isLight = false;
         }
 
-        public void setX(int i)
+        public void SetX(int i)
         {
             this.x = i;
         }
-        public void setY(int i)
+        public void SetY(int i)
         {
             this.y = i;
         }

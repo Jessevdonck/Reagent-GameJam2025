@@ -131,7 +131,7 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
+      x: 1
       y: 4
       width: 16
       height: 16
@@ -157,10 +157,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
+        x: 3
         y: 0
-        width: 16
-        height: 16
+        width: 10
+        height: 14
       spriteId: 15a0ee126164b7742b3e2a27cd671a19
     linkedCells: []
     parentIndex: -1

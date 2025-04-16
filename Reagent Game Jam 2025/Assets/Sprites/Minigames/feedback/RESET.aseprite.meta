@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1e367c9950374b148b51bd7bf4128c60
+guid: e87c065aed21f0d4cb5133c16366f85d
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638804019476128413
+  platformSettingsDirtyTick: 638804132782027658
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,7 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: lightOn
+  - name: RESET
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -131,11 +131,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 3
+      x: 4
       y: 4
-      width: 16
+      width: 64
       height: 16
-    spriteID: 45da6b839997dda478054093fb1830b0
+    spriteID: 62b216767ca31ba4287c3a58c838ffc7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,21 +147,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1154745397
-    name: lightOn
+    guid: -1052872087
+    name: RESET
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: lightOn
+    - name: RESET
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 1
+        x: 0
         y: 0
-        width: 14
+        width: 64
         height: 16
-      spriteId: 45da6b839997dda478054093fb1830b0
+      spriteId: 62b216767ca31ba4287c3a58c838ffc7
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -204,5 +204,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 16, y: 16}
-  previousTextureSize: {x: 32, y: 32}
+  canvasSize: {x: 64, y: 16}
+  previousTextureSize: {x: 128, y: 32}

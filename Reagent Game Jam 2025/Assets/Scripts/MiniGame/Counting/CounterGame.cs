@@ -7,22 +7,19 @@ using Random = UnityEngine.Random;
 
 namespace MiniGame
 {
-    public class CounterGame : MonoBehaviour, IMinigame
+    public class CounterGame : MonoBehaviour
     {
         [SerializeField] private List<GameObject> prefabs;
         private List<GameObject> gameObjects;
         private Vector2 startPosition = new Vector2(-3.125f, 0.625f);
         public float xSpacing = 1.25f;
         public float ySpacing = 1.25f;
-        private MinigameInteractable activator;
+        [SerializeField] private GameObject wrongScreen;
         
         private static CounterGame instance;
         private int count;
         
-        public void SetActivator(MinigameInteractable source)
-        {
-            activator = source;
-        }
+        
         public int getCount()
         {
             return count;
@@ -43,8 +40,16 @@ namespace MiniGame
             }
         }
 
-        
-        
+
+        void positiveFeedback()
+        {
+            
+        }
+
+        void negativeFeedback()
+        {
+            
+        }
 
         public void destroyAllButtons()
         {
@@ -138,11 +143,13 @@ namespace MiniGame
         
         public IEnumerator DisableClickTemporarily()
         {
-            Debug.Log("no click");
+            
             canClick = false;
+            GameObject wrong = Instantiate(wrongScreen, this.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(3f);
+            Destroy(wrong);
             canClick = true;
-            Debug.Log("can click");
+            
         }
 
         
