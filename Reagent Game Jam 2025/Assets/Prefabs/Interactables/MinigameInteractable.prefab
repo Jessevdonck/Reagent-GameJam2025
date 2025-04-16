@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 112559183404128799}
   - component: {fileID: 8515989314778418136}
-  - component: {fileID: 8938924343456862184}
+  - component: {fileID: 7493231581012466879}
   m_Layer: 0
-  m_Name: InteractableObject
-  m_TagString: Untagged
+  m_Name: MinigameInteractable
+  m_TagString: Minigame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 3}
   m_EdgeRadius: 0
---- !u!114 &8938924343456862184
+--- !u!114 &7493231581012466879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,9 +89,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 188424499444648711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30329b6fa8e6d2f4f9823034d64755fe, type: 3}
+  m_Script: {fileID: 11500000, guid: feceb708e1bb47248e86d27ca9757668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minigamePrefab: {fileID: 4374778333693708692, guid: 2b41e295e39cd034ba4191e50fbdde31, type: 3}
 --- !u!1 &8467261995553450383
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Level
   - Connector
+  - Minigame
+  - Dialogue
   layers:
   - Default
   - TransparentFX

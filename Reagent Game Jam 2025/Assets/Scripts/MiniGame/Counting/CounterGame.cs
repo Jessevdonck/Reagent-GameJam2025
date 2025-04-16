@@ -14,12 +14,12 @@ namespace MiniGame
         private Vector2 startPosition = new Vector2(-3.125f, 0.625f);
         public float xSpacing = 1.25f;
         public float ySpacing = 1.25f;
-        private Interactable activator;
+        private MinigameInteractable activator;
         
         private static CounterGame instance;
         private int count;
         
-        public void SetActivator(Interactable source)
+        public void SetActivator(MinigameInteractable source)
         {
             activator = source;
         }

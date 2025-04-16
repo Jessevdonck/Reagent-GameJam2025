@@ -1,4 +1,4 @@
 ﻿public interface IMinigame
 {
-    void SetActivator(Interactable activator);
+    void SetActivator(MinigameInteractable activator);
 }

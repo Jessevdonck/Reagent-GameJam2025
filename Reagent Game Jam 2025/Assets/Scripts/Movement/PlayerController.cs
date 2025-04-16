@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
@@ -9,13 +9,25 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movement;
 
+    private bool nearGrandma = false;
     public float interactRange = 1f;
     public KeyCode interactKey = KeyCode.E;
 
-    private Interactable activeInteractable = null;
+    private MinigameInteractable activeInteractable = null;
 
     void Update()
     {
+        // E om door dialoog te klikken
+        if (DialogueUI.Instance != null && DialogueUI.Instance.IsDialogueRunning)
+        {
+            if (Input.GetKeyDown(interactKey))
+            {
+                DialogueUI.Instance.DisplayNextSentence();
+            }
+            return;
+        }
+
+        // Beweging
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -23,23 +35,32 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("MoveY", movement.y);
         animator.SetBool("IsMoving", movement.sqrMagnitude > 0.01f);
 
+        // Interactie met E
         if (Input.GetKeyDown(interactKey))
         {
-            Debug.Log("pressed E");
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactRange);
             foreach (var hit in hits)
             {
-                Interactable interactable = hit.GetComponent<Interactable>();
-                if (interactable != null)
+                if (hit.CompareTag("Dialogue"))
                 {
-                    interactable.Interact();
-                    Debug.Log("pressed E2");
-                    activeInteractable = interactable; 
+                    hit.GetComponent<DialogueInteractable>()?.Interact();
                     break;
+                }
+
+                if (hit.CompareTag("Minigame"))
+                {
+                    var mini = hit.GetComponent<MinigameInteractable>();
+                    if (mini != null)
+                    {
+                        mini.Interact();
+                        activeInteractable = mini;
+                        break;
+                    }
                 }
             }
         }
 
+        // ESC sluit minigame
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (activeInteractable != null)
@@ -49,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
 
     void FixedUpdate()
     {
