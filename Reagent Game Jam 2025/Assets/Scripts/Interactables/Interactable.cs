@@ -1,3 +1,4 @@
+using MiniGame;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -24,7 +25,7 @@ public class Interactable : MonoBehaviour
             return;
         }
 
-        activeMinigame = Instantiate(minigamePrefab, canvas.transform);
+        activeMinigame = Instantiate(minigamePrefab);
 
         // Interface check
         var minigame = activeMinigame.GetComponent<IMinigame>();
@@ -34,10 +35,16 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    public void DestroyAllButtons()
+    {
+        activeMinigame.GetComponent<CounterGame>().destroyAllButtons();
+    }
+
     public void CloseMinigame()
     {
         if (activeMinigame != null)
         {
+            DestroyAllButtons();
             Destroy(activeMinigame);
             activeMinigame = null;
         }

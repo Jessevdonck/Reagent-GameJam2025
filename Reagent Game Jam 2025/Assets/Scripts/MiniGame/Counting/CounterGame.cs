@@ -46,7 +46,7 @@ namespace MiniGame
         
         
 
-        private void destroyAllButtons()
+        public void destroyAllButtons()
         {
             foreach (GameObject go in gameObjects)
             {
