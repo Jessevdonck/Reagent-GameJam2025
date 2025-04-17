@@ -14,17 +14,7 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
 
     private bool isCompleted;
     private GameObject activeMinigame;
-
-    private void OnEnable()
-    {
-        CheckIfCompleted();
-    }
-
-    private void CheckIfCompleted()
-    {
-        isCompleted = LevelManager.Instance.AreAllMinigamesCompleted();
-    }
-
+    
     public void Interact()
     {
         if (activeMinigame == null && minigamePrefab != null && !isCompleted)
