@@ -9,11 +9,21 @@ public class PlayerController : MonoBehaviour
 
     Vector2 movement;
 
+    public AudioClip[] footstepSounds; 
+    private AudioSource audioSource;
+    public float stepInterval = 0.3f; 
+    private float nextStepTime = 0f; 
+
     private bool nearGrandma = false;
     public float interactRange = 1f;
     public KeyCode interactKey = KeyCode.E;
 
     private MinigameInteractable activeInteractable = null;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>(); 
+    }
 
     void Update()
     {
@@ -69,11 +79,26 @@ public class PlayerController : MonoBehaviour
                 activeInteractable = null;
             }
         }
-    }
 
+        if (movement.sqrMagnitude > 0.01f && Time.time > nextStepTime) 
+        {
+            PlayFootstepSound();
+            nextStepTime = Time.time + stepInterval; 
+        }
+    }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    void PlayFootstepSound()
+    {
+        if (footstepSounds.Length > 0)
+        {
+            // Kies een willekeurig geluid uit de array
+            AudioClip footstep = footstepSounds[Random.Range(0, footstepSounds.Length)];
+            audioSource.PlayOneShot(footstep);
+        }
     }
 }
