@@ -1,48 +1,39 @@
+using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
 
-    [SerializeField] private LevelData[] levels;
-    private int currentLevelIndex = 0;
+    public List<MinigameData> minigames;
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        Instance = this;
     }
 
-    private void Start()
+    public void MarkMinigameComplete(int id)
     {
-        LoadLevel(currentLevelIndex);
-    }
-
-    public void GoalReached()
-    {
-        Debug.Log("Goal reached!");
-        currentLevelIndex++;
-
-        if (currentLevelIndex < levels.Length)
-            LoadLevel(currentLevelIndex);
-        else
-            Debug.Log("All levels complete!");
-    }
-
-    private void LoadLevel(int index)
-    {
-        Debug.Log("Loading Level " + index);
-        ClearLevel();
-
-        Instantiate(levels[index].levelPrefab);
-    }
-
-    private void ClearLevel()
-    {
-        foreach (var obj in GameObject.FindGameObjectsWithTag("Level"))
+        var game = minigames.Find(m => m.minigameID == id);
+        if (game != null)
         {
-            Destroy(obj);
+            game.isCompleted = true;
         }
+    }
+
+    public bool AreAllMinigamesCompleted()
+    {
+        foreach (var game in minigames)
+        {
+            if (!game.isCompleted)
+                return false;
+        }
+        return true;
+    }
+    
+    public bool IsMinigameCompleted(int id)
+    {
+        var game = minigames.Find(m => m.minigameID == id);
+        return game != null && game.isCompleted;
     }
 }

@@ -1907,6 +1907,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &407878477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8467261995553450383, guid: 671d3db375269b947887a277e0117be2, type: 3}
+  m_PrefabInstance: {fileID: 761404741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &482394918
 GameObject:
   m_ObjectHideFlags: 0
@@ -5170,6 +5175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinigameInteractable
       objectReference: {fileID: 0}
+    - target: {fileID: 7493231581012466879, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: exclamation
+      value: 
+      objectReference: {fileID: 407878477}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5367,6 +5376,95 @@ MonoBehaviour:
   portraitImage: {fileID: 1374332838}
   dialoguePanel: {fileID: 533345922}
   dialogueText: {fileID: 2131349528}
+--- !u!1001 &1106561463
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 112559183404128799, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 112559183404128799, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 112559183404128799, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 112559183404128799, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 112559183404128799, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 112559183404128799, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 112559183404128799, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 112559183404128799, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 112559183404128799, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 112559183404128799, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188424499444648711, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_Name
+      value: MinigameInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493231581012466879, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: minigameID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493231581012466879, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: exclamation
+      value: 
+      objectReference: {fileID: 1499724866}
+    - target: {fileID: 7493231581012466879, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: minigamePrefab
+      value: 
+      objectReference: {fileID: 8152717977264956342, guid: 8726b51a35eb86e41a63f62ede37a7d1, type: 3}
+    - target: {fileID: 8515989314778418136, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0688004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515989314778418136, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_Size.y
+      value: 2.3987994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515989314778418136, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515989314778418136, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.3694007
+      objectReference: {fileID: 0}
+    - target: {fileID: 9131254058249671391, guid: 671d3db375269b947887a277e0117be2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 671d3db375269b947887a277e0117be2, type: 3}
 --- !u!1 &1172535685
 GameObject:
   m_ObjectHideFlags: 0
@@ -7838,6 +7936,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1499724866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8467261995553450383, guid: 671d3db375269b947887a277e0117be2, type: 3}
+  m_PrefabInstance: {fileID: 1106561463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1647559215
 GameObject:
   m_ObjectHideFlags: 0
@@ -7884,6 +7987,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 0
   moneyText: {fileID: 1172535687}
+--- !u!1 &1657979851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1657979853}
+  - component: {fileID: 1657979852}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1657979852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657979851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7104573416fe62b4ca8421621c0383e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigames:
+  - minigameID: 0
+    isCompleted: 0
+  - minigameID: 1
+    isCompleted: 0
+--- !u!4 &1657979853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657979851}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.96334267, y: 0.89611554, z: -0.061329715}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1837319286
 GameObject:
   m_ObjectHideFlags: 0
@@ -8395,5 +8547,7 @@ SceneRoots:
   - {fileID: 1020732756}
   - {fileID: 85757334}
   - {fileID: 761404741}
+  - {fileID: 1106561463}
   - {fileID: 197214255}
   - {fileID: 1647559216}
+  - {fileID: 1657979853}

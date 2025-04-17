@@ -19,11 +19,7 @@ namespace MiniGame.LightsSwitching
         private SpriteRenderer sr;
         private void Start()
         {
-            
             float random = Random.Range(0, 11);
-                    
-            
-            
         }
 
         private void Awake()
@@ -69,6 +65,11 @@ namespace MiniGame.LightsSwitching
         public void SetY(int i)
         {
             this.y = i;
+        }
+
+        public bool IsOn()
+        {
+            return isLight;
         }
         
     }

@@ -1,17 +1,33 @@
+using System;
 using MiniGame;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class MinigameInteractable : MonoBehaviour, IInteractable
 {
+    
     [Header("Minigame Settings")]
     public GameObject minigamePrefab;
+    
+    [SerializeField] private int minigameID;
+    [SerializeField] private GameObject exclamation;
 
+    private bool isCompleted;
     private GameObject activeMinigame;
+
+    private void OnEnable()
+    {
+        CheckIfCompleted();
+    }
+
+    private void CheckIfCompleted()
+    {
+        isCompleted = LevelManager.Instance.AreAllMinigamesCompleted();
+    }
 
     public void Interact()
     {
-        if (activeMinigame == null && minigamePrefab != null)
+        if (activeMinigame == null && minigamePrefab != null && !isCompleted)
         {
             OpenMinigame();
         }
@@ -22,9 +38,13 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
         Vector3 worldCenter = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 10f));
 
         activeMinigame = Instantiate(minigamePrefab, worldCenter,quaternion.identity);
-        
     }
-
+    
+    public void DisableInteractable()
+    {
+        gameObject.SetActive(false);
+    }
+    
     public void DestroyAllButtons()
     {
         activeMinigame.GetComponent<CounterGame>().destroyAllButtons();
@@ -34,9 +54,18 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
     {
         if (activeMinigame != null)
         {
-            DestroyAllButtons();
             Destroy(activeMinigame);
             activeMinigame = null;
+
+            if (LevelManager.Instance.IsMinigameCompleted(minigameID))
+            {
+                gameObject.SetActive(false);
+            }
+
+            if (activeMinigame.GetComponent<CounterGame>())
+            {
+                DestroyAllButtons();
+            }
         }
     }
 }

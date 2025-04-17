@@ -19,6 +19,8 @@ namespace MiniGame
         private static CounterGame instance;
         private int count;
         
+        private int minigameID = 0;
+        
         
         public int getCount()
         {
@@ -37,6 +39,7 @@ namespace MiniGame
             if (count == 12)
             {
                 Debug.Log("finish");
+                LevelManager.Instance.MarkMinigameComplete(0);
             }
         }
 

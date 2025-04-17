@@ -8,11 +8,13 @@ namespace MiniGame.LightsSwitching
     public class LightsGame : MonoBehaviour
     {
         [SerializeField] private GameObject light;
+        [SerializeField] private Transform boardParent;
         private Vector3 spawnPos;
         private List<GameObject> gameObjects;
         private Light[][] lights;
         private int steps = 5;
         private static LightsGame instance;
+        private int minigameID = 1;
 
         public static LightsGame GetInstance()
         {
@@ -66,6 +68,12 @@ namespace MiniGame.LightsSwitching
             {
                 lights[x][y + 1].SwitchLight();
             }
+
+            if (isGameCompleted())
+            {
+                Debug.Log("KLAAR");
+                LevelManager.Instance.MarkMinigameComplete(1);
+            }
         }
 
         void SpawnLights()
@@ -75,8 +83,9 @@ namespace MiniGame.LightsSwitching
                 lights[i] = new Light[5];
                 for (int j = 0; j < 5; j++)
                 {
-                    Vector3 newPos = new Vector3(spawnPos.x + j * 1.25f, spawnPos.y - i * 1.25f, spawnPos.z);
-                    GameObject instance = Instantiate(light, newPos, Quaternion.identity);
+                    Vector3 localOffset = new Vector3(j * 1.25f, -i * 1.25f, 0f);
+                    Vector3 newPos = boardParent.TransformPoint(spawnPos + localOffset);
+                    GameObject instance = Instantiate(light, newPos, Quaternion.identity, boardParent);
                     gameObjects.Add(instance);
                     Light l = instance.GetComponent<Light>();
                     l.SetX(i);
@@ -95,6 +104,22 @@ namespace MiniGame.LightsSwitching
                 SwitchLight(x,y);
             }
 
+        }
+
+        private bool isGameCompleted()
+        {
+            foreach (var row in lights)
+            {
+                foreach (var l in row)
+                {
+                    if (!l.IsOn())
+                    {
+                        return false;
+                    }
+                }
+            }
+            
+            return true;
         }
     }
 }
