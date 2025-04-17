@@ -35,10 +35,10 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
         gameObject.SetActive(false);
     }
     
-    public void DestroyAllButtons()
-    {
-        activeMinigame.GetComponent<CounterGame>().destroyAllButtons();
-    }
+    // public void DestroyAllButtons()
+    // {
+    //     activeMinigame.GetComponent<CounterGame>().destroyAllButtons();
+    // }
 
     public void CloseMinigame()
     {
@@ -52,10 +52,10 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
                 gameObject.SetActive(false);
             }
 
-            if (activeMinigame.GetComponent<CounterGame>())
-            {
-                DestroyAllButtons();
-            }
+            // if (activeMinigame.GetComponent<CounterGame>())
+            // {
+            //     DestroyAllButtons();
+            // }
         }
     }
 }

@@ -3,6 +3,9 @@ using UnityEngine.UIElements;
 
 public class DialogueInteractable : MonoBehaviour
 {
+    [Header("First-time Dialogue Lines")]
+    [TextArea(2, 5)] public string[] firstTimeDialogueLines; 
+    
     [Header("Dialogue Lines")]
     [TextArea(2, 5)] public string[] dialogueLines;
 
@@ -18,6 +21,7 @@ public class DialogueInteractable : MonoBehaviour
     public Sprite characterPortrait;
     
     private bool rewardGiven = false;
+    private bool firstTimeTalking = true; 
 
     public void Interact()
     {
@@ -27,11 +31,12 @@ public class DialogueInteractable : MonoBehaviour
         {
             if (!rewardGiven)
             {
+                LevelManager.Instance.StopTimer();
                 string rewardLine = rewardLines[Random.Range(0, rewardLines.Length)];
                 DialogueUI.Instance.ShowDialogue(new string[] { rewardLine }, characterName, characterPortrait);
                 rewardGiven = true;
-                GameManager.Instance.AddMoney(100);
-                Debug.Log("+100 euro!");
+                GameManager.Instance.AddMoney(LevelManager.Instance.GetReward());
+                
             }
             else
             {
@@ -41,8 +46,19 @@ public class DialogueInteractable : MonoBehaviour
         }
         else
         {
-            string randomLine = dialogueLines[Random.Range(0, dialogueLines.Length)];
-            DialogueUI.Instance.ShowDialogue(new string[] { randomLine }, characterName, characterPortrait);
+            if (firstTimeTalking)
+            {
+                string firstTimeLine = firstTimeDialogueLines[Random.Range(0, firstTimeDialogueLines.Length)];
+                DialogueUI.Instance.ShowDialogue(new string[] { firstTimeLine }, characterName, characterPortrait);
+                firstTimeTalking = false;
+                
+                LevelManager.Instance.StartTimer();
+            }
+            else
+            {
+                string randomLine = dialogueLines[Random.Range(0, dialogueLines.Length)];
+                DialogueUI.Instance.ShowDialogue(new string[] { randomLine }, characterName, characterPortrait);
+            }
         }
     }
 }

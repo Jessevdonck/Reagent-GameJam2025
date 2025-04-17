@@ -8,12 +8,24 @@ using UnityEngine.SceneManagement;
 
 public class BlackjackGame : MonoBehaviour
 {
+    public GameObject wagerPanel;
+    public GameObject hitAndStandPanel;
+    public TMP_Text wagerText;
+    public Button increaseWagerButton;
+    public Button decreaseWagerButton;
+
+    private int currentWager = 0;
+    private int minWager = 10;
+    private int maxWager = 500;
+    private int wagerStep = 10;
+    
     public TMP_Text playerScoreText;
     public TMP_Text dealerScoreText;
     public TMP_Text resultText;
     
     public Button backToMenuButton;
     public Button playAgainButton;
+    public Button playButton;
     
     private List<int> playerCards;
     private List<int> dealerCards;
@@ -25,31 +37,36 @@ public class BlackjackGame : MonoBehaviour
 
     public void Start()
     {
-        StartGame();
+        currentWager = minWager;
+        UpdateWagerUI();
+        
+        wagerPanel.SetActive(true);
+        
+        hitAndStandPanel.gameObject.SetActive(false);
+        backToMenuButton.gameObject.SetActive(false);
+        playAgainButton.gameObject.SetActive(false);
+        resultText.gameObject.SetActive(false);
     }
 
     public void StartGame()
     {
-        resultText.gameObject.SetActive(false);
-        backToMenuButton.gameObject.SetActive(false);
-        playAgainButton.gameObject.SetActive(false);
-        
-        if(playerCards != null)
-            ResetCards();  
+        if (playerCards != null)
+            ResetCards();
 
         isGameOver = false;
 
-        playerCards = new List<int>();  
-        dealerCards = new List<int>();  
+        playerCards = new List<int>();
+        dealerCards = new List<int>();
 
-        playerCards.Add(DrawCard());  
         playerCards.Add(DrawCard());
-        dealerCards.Add(DrawCard());  
+        playerCards.Add(DrawCard());
+        dealerCards.Add(DrawCard());
         dealerCards.Add(DrawCard());
 
-        ShowCards(); 
-        UpdateUI();  
+        ShowCards();
+        UpdateUI();
     }
+
 
 
     public void Hit()
@@ -105,11 +122,22 @@ public class BlackjackGame : MonoBehaviour
         isGameOver = true;
         resultText.text = result;
         resultText.gameObject.SetActive(true);
-        
+    
         backToMenuButton.gameObject.SetActive(true);
         playAgainButton.gameObject.SetActive(true);
+
+        if (result == "You win!")
+        {
+            GameManager.Instance.AddMoney(currentWager * 2);
+        }
+        else if (result == "Draw.")
+        {
+            GameManager.Instance.AddMoney(currentWager); 
+        }
+
         UpdateUI();
     }
+
 
     int DrawCard()
     {
@@ -175,5 +203,51 @@ public class BlackjackGame : MonoBehaviour
         playerCards.Clear();
         dealerCards.Clear();
     }
+    
+    public void IncreaseWager()
+    {
+        currentWager += wagerStep;
+        currentWager = Mathf.Min(currentWager, maxWager);
+        UpdateWagerUI();
+    }
 
+    public void DecreaseWager()
+    {
+        currentWager -= wagerStep;
+        currentWager = Mathf.Max(currentWager, minWager);
+        UpdateWagerUI();
+    }
+    
+    public void OnPlayButtonClicked()
+    {
+        if (!GameManager.Instance.SpendMoney(currentWager))
+        {
+            resultText.text = "Not enough money!";
+            resultText.gameObject.SetActive(true);
+            return;
+        }
+
+        wagerPanel.SetActive(false);  
+        resultText.gameObject.SetActive(false);
+        hitAndStandPanel.gameObject.SetActive(true);
+        StartGame();  
+    }
+
+    public void PlayAgain()
+    {
+        wagerPanel.SetActive(true);
+        resultText.gameObject.SetActive(false);
+        ResetCards();
+        resultText.gameObject.SetActive(false);
+        playAgainButton.gameObject.SetActive(false);
+        backToMenuButton.gameObject.SetActive(false);
+        hitAndStandPanel.gameObject.SetActive(false);
+    }
+    
+    
+
+    void UpdateWagerUI()
+    {
+        wagerText.text = "Wager: €" + currentWager;
+    }
 }
