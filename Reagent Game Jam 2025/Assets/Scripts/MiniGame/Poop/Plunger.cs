@@ -17,6 +17,11 @@ public class Plunger : MonoBehaviour
         {
             game.PoopHit();
         }
+        else if(game.isDipping)
+        {
+            SoundManager.Instance.PlaySound(game.GetDullSound(), 0.6f);
+        }
+        
         
         
     }

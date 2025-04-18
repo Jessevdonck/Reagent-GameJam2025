@@ -85,6 +85,12 @@ MonoBehaviour:
   amount: 5
   cockroach: {fileID: 7480279297142340385, guid: 9d6a4a5ce80382f48abdc71a4607c5ff, type: 3}
   isGameCompleted: 0
+  interactableParent: {fileID: 0}
+  goopSounds:
+  - {fileID: 8300000, guid: 7609f18714edeb64086bacaab0306c41, type: 3}
+  - {fileID: 8300000, guid: 307c3494775c1804f9e9d6850a42a6f1, type: 3}
+  - {fileID: 8300000, guid: 2cd9bf3fb8a99f141a91c4bc295fa0e4, type: 3}
+  dullSound: {fileID: 8300000, guid: e9e2d787ca706ac468cd272e832955f9, type: 3}
 --- !u!1 &4813348714967133003
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,9 @@ namespace MiniGame.CockRoach
         private List<GameObject> cockroaches;
         public bool isGameCompleted;
         public MinigameInteractable interactableParent;
+        
+        [SerializeField] private List<AudioClip> goopSounds;
+        [SerializeField] private AudioClip dullSound;
         private void Start()
         {
             isGameCompleted = false;
@@ -35,6 +38,16 @@ namespace MiniGame.CockRoach
             {
                 GameCompleted();
             }
+        }
+        
+        public AudioClip PlayRandomGoopSound()
+        {
+            return goopSounds[Random.Range(0, goopSounds.Count)];
+        }
+        
+        public AudioClip GetDullSound()
+        {
+            return dullSound;
         }
 
         private void GameCompleted()

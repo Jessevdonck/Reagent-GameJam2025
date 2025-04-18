@@ -1,3 +1,4 @@
+using MiniGame.CockRoach;
 using UnityEngine;
 
 public class FistDropper : MonoBehaviour
@@ -52,10 +53,19 @@ public class FistDropper : MonoBehaviour
 
         // 💥 Check for squish
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, smashRadius, cockroachLayer);
-        foreach (var hit in hits)
+        if (hits.Length > 0)
         {
-            Debug.Log("Hit");
-            Destroy(hit.gameObject); // squish!
+            foreach (var hit in hits)
+            {
+                Debug.Log("Hit");
+                SoundManager.Instance.PlaySound(CockroachGame.GetInstance().PlayRandomGoopSound(), 0.6f);
+                CockroachGame.GetInstance().HitRoach();
+                Destroy(hit.gameObject); // squish!
+            }
+        }
+        else
+        {
+            SoundManager.Instance.PlaySound(CockroachGame.GetInstance().GetDullSound());
         }
 
         yield return new WaitForSeconds(stayTime);

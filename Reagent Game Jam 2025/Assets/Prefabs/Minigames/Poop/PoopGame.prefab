@@ -149,6 +149,12 @@ MonoBehaviour:
   plungerSpeed: 30
   plungerDipAmount: 1.2
   movementRange: 4
+  goopSounds:
+  - {fileID: 8300000, guid: b42b45b49fd9f4e448ae0dfa7635fd0d, type: 3}
+  - {fileID: 8300000, guid: 5cc8443d8b9a8944dba2fee6e19d3278, type: 3}
+  - {fileID: 8300000, guid: 17969a89ad649dc4ba6db0020c63a3e3, type: 3}
+  dullSound: {fileID: 8300000, guid: e9e2d787ca706ac468cd272e832955f9, type: 3}
+  interactableParent: {fileID: 0}
 --- !u!61 &3490457534590807427
 BoxCollider2D:
   m_ObjectHideFlags: 0

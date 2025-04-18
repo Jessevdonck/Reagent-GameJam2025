@@ -5130,7 +5130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7493231581012466879, guid: 671d3db375269b947887a277e0117be2, type: 3}
       propertyPath: minigameID
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7493231581012466879, guid: 671d3db375269b947887a277e0117be2, type: 3}
       propertyPath: exclamation
@@ -6238,7 +6238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7493231581012466879, guid: 671d3db375269b947887a277e0117be2, type: 3}
       propertyPath: minigameID
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7493231581012466879, guid: 671d3db375269b947887a277e0117be2, type: 3}
       propertyPath: exclamation
@@ -9706,7 +9706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7493231581012466879, guid: 671d3db375269b947887a277e0117be2, type: 3}
       propertyPath: minigameID
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7493231581012466879, guid: 671d3db375269b947887a277e0117be2, type: 3}
       propertyPath: exclamation

@@ -11,6 +11,9 @@ public class PoopGame : MonoBehaviour, IMinigame
     [SerializeField] private float plungerSpeed = 2f;
     [SerializeField] private float plungerDipAmount = 0.5f;
     [SerializeField] private float movementRange = 3f;
+    
+    [SerializeField] private List<AudioClip> goopSounds;
+    [SerializeField] private AudioClip dullSound;
 
     private static PoopGame instance;
     public MinigameInteractable interactableParent;
@@ -24,7 +27,7 @@ public class PoopGame : MonoBehaviour, IMinigame
     private int hitCount;
     private int hitLimit;
     private bool isGameCompleted;
-    private bool isDipping;
+    public bool isDipping;
 
     private Vector3 plungerStartPos;
     private bool movingRight = true;
@@ -115,6 +118,7 @@ public class PoopGame : MonoBehaviour, IMinigame
     public void PoopHit()
     {
         Debug.Log("poophit");
+        PlayRandomGoopSound();
         if (hitCount < hitLimit)
         {
             Destroy(poops[hitCount]);
@@ -142,6 +146,20 @@ public class PoopGame : MonoBehaviour, IMinigame
     public void SetParentInteractable(MinigameInteractable interactable)
     {
         interactableParent = interactable;
+    }
+    
+    void PlayRandomGoopSound()
+    {
+        if (goopSounds.Count > 0)
+        {
+            AudioClip clip = goopSounds[Random.Range(0, goopSounds.Count)];
+            SoundManager.Instance.PlaySound(clip, 0.6f);
+        }
+    }
+    
+    public AudioClip GetDullSound()
+    {
+        return dullSound;
     }
     
     private IEnumerator EndMinigame()
