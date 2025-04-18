@@ -79,6 +79,7 @@ namespace MiniGame.LightsSwitching
                 if (interactableParent != null)
                 {
                     interactableParent.OnMinigameCompleted();
+                    Debug.Log("lol");
                 }
                 
                 StartCoroutine(EndMinigame());
@@ -150,6 +151,7 @@ namespace MiniGame.LightsSwitching
         {
             yield return new WaitForSeconds(2f);
             StopAllCoroutines();
+            SelfDestruct();
             Destroy(this.gameObject);
         }
     }
