@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class DialogueInteractable : MonoBehaviour
 {
@@ -21,7 +23,21 @@ public class DialogueInteractable : MonoBehaviour
     public Sprite characterPortrait;
     
     private bool rewardGiven = false;
-    private bool firstTimeTalking = true; 
+    private bool firstTimeTalking = true;
+
+    public GameObject exclamation;
+
+    public void Start()
+    {
+        if (firstTimeTalking)
+        {
+            exclamation.SetActive(true);
+        }
+        else
+        {
+            exclamation.SetActive(false);
+        }
+    }
 
     public void Interact()
     {
@@ -51,6 +67,10 @@ public class DialogueInteractable : MonoBehaviour
                 string firstTimeLine = firstTimeDialogueLines[Random.Range(0, firstTimeDialogueLines.Length)];
                 DialogueUI.Instance.ShowDialogue(new string[] { firstTimeLine }, characterName, characterPortrait);
                 firstTimeTalking = false;
+                
+                exclamation.SetActive(false);
+                
+                LevelManager.Instance.ShowMinigameExclamations();
                 
                 LevelManager.Instance.StartTimer();
             }

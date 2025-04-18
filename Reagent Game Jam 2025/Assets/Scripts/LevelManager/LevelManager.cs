@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -21,6 +22,11 @@ public class LevelManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        Camera.main.transform.position = new Vector3(0, 0, -10);
+    }
+
     private void Update()
     {
         if (timerRunning)
@@ -33,7 +39,17 @@ public class LevelManager : MonoBehaviour
                 currentTime = 0;
                 timerRunning = false;
                 EndLevel();
+          
             }
+        }
+    }
+    
+    public void ShowMinigameExclamations()
+    {
+        foreach (var minigame in minigames)
+        {
+            minigame.exclamation.SetActive(true);
+            Debug.Log(minigame);
         }
     }
 

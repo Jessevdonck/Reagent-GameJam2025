@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private bool inMinigame;
     private MinigameInteractable activeInteractable = null;
     private static PlayerController instance;
+    
+    public UiLevelManager uiMenuController;
 
     public static PlayerController GetInstance()
     {
@@ -47,6 +49,21 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (uiMenuController != null)
+            {
+                if (uiMenuController.uiMenuPanel.activeSelf)
+                {
+                    uiMenuController.CloseMenu(); // Sluit het menu
+                }
+                else
+                {
+                    uiMenuController.OpenMenu(); // Open het menu
+                }
+            }
+        }
         // E om door dialoog te klikken
         if (DialogueUI.Instance != null && DialogueUI.Instance.IsDialogueRunning)
         {
