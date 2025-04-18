@@ -19,7 +19,7 @@ public class PoopGame : MonoBehaviour
         return instance;
     }
     
-    [SerializeField] private Collider2D plungerCollider;
+    
     
     private int hitCount;
     private int hitLimit;
