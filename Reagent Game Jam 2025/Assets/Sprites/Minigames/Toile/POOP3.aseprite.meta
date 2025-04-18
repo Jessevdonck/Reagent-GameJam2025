@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 794e164b329c8484b85cffd69ffe9b41
+guid: 0f76a438a567c3d418b545481ceb8158
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638805116990223088
+  platformSettingsDirtyTick: 638805149405464538
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,7 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: TOILET
+  - name: POOP3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -131,11 +131,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
-      width: 35
-      height: 40
-    spriteID: bbcf95366a5ef9f4289d20cff6cee107
+      x: 1
+      y: 1
+      width: 20
+      height: 20
+    spriteID: 9089af5a35ac83041a2da3f5a9dee2d0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,21 +147,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -265194985
-    name: TOILET
+    guid: -998908597
+    name: POOP3
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: TOILET
+    - name: POOP3
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 3
-        y: 0
-        width: 35
-        height: 40
-      spriteId: bbcf95366a5ef9f4289d20cff6cee107
+        y: 3
+        width: 14
+        height: 14
+      spriteId: 9089af5a35ac83041a2da3f5a9dee2d0
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -204,5 +204,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 40, y: 40}
-  previousTextureSize: {x: 64, y: 64}
+  canvasSize: {x: 20, y: 20}
+  previousTextureSize: {x: 32, y: 32}

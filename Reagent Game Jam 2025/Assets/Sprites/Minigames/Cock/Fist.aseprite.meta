@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 794e164b329c8484b85cffd69ffe9b41
+guid: cbc212707108b3c40b90bdf22a91f1b5
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 16
+    spritePixelsToUnits: 6
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638805116990223088
+  platformSettingsDirtyTick: 638805281512928879
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,19 +123,19 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: TOILET
+  - name: Fist
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 1}
+    alignment: 2
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 35
-      height: 40
-    spriteID: bbcf95366a5ef9f4289d20cff6cee107
+      width: 14
+      height: 62
+    spriteID: a3b8e69c5c05c0d41bbb2514e6ee585d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,21 +147,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -265194985
-    name: TOILET
+    guid: 1178975048
+    name: Fist
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: TOILET
+    - name: Fist
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 3
+        x: 1
         y: 0
-        width: 35
-        height: 40
-      spriteId: bbcf95366a5ef9f4289d20cff6cee107
+        width: 14
+        height: 62
+      spriteId: a3b8e69c5c05c0d41bbb2514e6ee585d
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -204,5 +204,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 40, y: 40}
-  previousTextureSize: {x: 64, y: 64}
+  canvasSize: {x: 16, y: 64}
+  previousTextureSize: {x: 64, y: 128}

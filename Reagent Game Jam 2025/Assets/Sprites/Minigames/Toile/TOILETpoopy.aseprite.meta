@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 794e164b329c8484b85cffd69ffe9b41
+guid: 889ffc99e794c844085b3f589e49d4b2
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 16
+    spritePixelsToUnits: 100
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638805116990223088
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,10 +123,10 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: TOILET
+  - name: TOILETpoopy
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -135,7 +135,7 @@ ScriptedImporter:
       y: 4
       width: 35
       height: 40
-    spriteID: bbcf95366a5ef9f4289d20cff6cee107
+    spriteID: b5fb48ae1661af342b9bfdbf7260dd20
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,13 +147,13 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -265194985
-    name: TOILET
+    guid: 99451484
+    name: TOILETpoopy
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: TOILET
+    - name: TOILETpoopy
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -161,7 +161,7 @@ ScriptedImporter:
         y: 0
         width: 35
         height: 40
-      spriteId: bbcf95366a5ef9f4289d20cff6cee107
+      spriteId: b5fb48ae1661af342b9bfdbf7260dd20
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -169,30 +169,6 @@ ScriptedImporter:
     overridden: 0
     ignorePlatformSupport: 0
     maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
