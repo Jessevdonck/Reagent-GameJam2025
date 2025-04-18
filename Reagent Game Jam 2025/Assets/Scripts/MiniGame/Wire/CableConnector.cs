@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class CableConnector : MonoBehaviour
 {
-    private CableConnector correct;
-    private CableConnector connected;
+    public CableConnector correct;
+    public CableConnector connected;
     [SerializeField] private GameObject wire;
     private bool correctConnected;
     private bool isDragging;
@@ -48,14 +48,73 @@ public class CableConnector : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (wireInstance)
+        {
+            Destroy(wireInstance);
+            wireInstance = null;
+            connected.connected = null;
+            connected = null;
+        }
         if(isDragging)return;
         isDragging = true;
         wireInstance = Instantiate(wire, transform.position, quaternion.identity);
+    }
+    
+    public void SetCorrect(CableConnector other)
+    {
+        correct = other;
+    }
+
+    public bool IsCorrectlyConnected()
+    {
+        return connected == correct;
     }
 
     private void OnMouseUp()
     {
         isDragging = false;
+
+        Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorld.z = 0;
+
+        // Radius check for more forgiving hit detection
+        Collider2D[] hits = Physics2D.OverlapCircleAll(mouseWorld, 0.2f);
+        foreach (Collider2D hit in hits)
+        {
+            CableConnector target = hit.GetComponent<CableConnector>();
+
+            // Exclude self and already connected targets
+            if (target != null && target != this && target.connected == null)
+            {
+                connected = target;
+                target.connected = this;
+
+                Vector3 start = transform.position;
+                Vector3 end = target.transform.position;
+                Vector3 direction = (end - start).normalized;
+                float distance = Vector3.Distance(start, end);
+
+                
+                wireInstance.transform.localScale = new Vector3(1, distance, 1f);
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                wireInstance.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+
+                if (target == correct)
+                {
+                    correctConnected = true;
+                    Debug.Log("✅ Correct wire connected!");
+                }
+                else
+                {
+                    Debug.Log("❌ Wrong connection.");
+                }
+                FindObjectOfType<CableManager>().CheckWinCondition();
+                return;
+            }
+        }
+
+        // No valid connection, destroy the wire
         Destroy(wireInstance);
+        connected = null;
     }
 }

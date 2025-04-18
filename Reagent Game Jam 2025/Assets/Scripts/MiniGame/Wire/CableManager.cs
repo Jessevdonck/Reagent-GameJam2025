@@ -5,7 +5,59 @@ public class CableManager : MonoBehaviour
 {
     [SerializeField] private List<CableConnector> topRow;
     [SerializeField] private List<CableConnector> bottomRow;
-    
+    private bool gameCompleted;
+    private int totalPairs;
+
+    private void Start()
+    {
+        gameCompleted = false;
+        SetupWires();
+    }
+
+    void SetupWires()
+    {
+        if (topRow.Count != bottomRow.Count)
+        {
+            Debug.LogError("Connector lists must be the same length.");
+            return;
+        }
+
+        totalPairs = topRow.Count;
+
+        // Shuffle right connectors
+        List<CableConnector> shuffledRight = new List<CableConnector>(bottomRow);
+        for (int i = 0; i < shuffledRight.Count; i++)
+        {
+            CableConnector temp = shuffledRight[i];
+            int randIndex = Random.Range(i, shuffledRight.Count);
+            shuffledRight[i] = shuffledRight[randIndex];
+            shuffledRight[randIndex] = temp;
+        }
+
+        // Assign correct pairs
+        for (int i = 0; i < totalPairs; i++)
+        {
+            topRow[i].SetCorrect(shuffledRight[i]);
+            shuffledRight[i].SetCorrect(topRow[i]);
+        }
+    }
+
+    public void CheckWinCondition()
+    {
+        foreach (var connector in topRow)
+        {
+            if (!connector.IsCorrectlyConnected())
+                return;
+        }
+
+        Debug.Log("🎉 All cables correctly connected!");
+        gameCompleted = true;
+    }
+
+    public bool GetGameCompleted()
+    {
+        return gameCompleted;
+    }
     
     
     
