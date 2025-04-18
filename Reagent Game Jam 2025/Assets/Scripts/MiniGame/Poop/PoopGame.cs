@@ -114,6 +114,7 @@ public class PoopGame : MonoBehaviour
 
     public void PoopHit()
     {
+        Debug.Log("poophit");
         if (hitCount < hitLimit)
         {
             Destroy(poops[hitCount]);

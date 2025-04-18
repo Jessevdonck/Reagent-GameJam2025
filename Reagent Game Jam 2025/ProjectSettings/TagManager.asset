@@ -9,6 +9,7 @@ TagManager:
   - Minigame
   - Dialogue
   - UI
+  - Poop
   layers:
   - Default
   - TransparentFX

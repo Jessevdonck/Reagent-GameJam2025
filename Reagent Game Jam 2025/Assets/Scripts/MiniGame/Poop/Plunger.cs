@@ -13,7 +13,11 @@ public class Plunger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        game.PoopHit();
+        if (other.CompareTag("Poop"))
+        {
+            game.PoopHit();
+        }
+        
         
     }
 }

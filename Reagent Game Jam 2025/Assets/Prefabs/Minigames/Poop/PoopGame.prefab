@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3385216404687458839}
   m_Layer: 0
   m_Name: PoopGame
-  m_TagString: Untagged
+  m_TagString: Poop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,6 @@ MonoBehaviour:
   plungerSpeed: 30
   plungerDipAmount: 1.2
   movementRange: 4
-  plungerCollider: {fileID: 0}
 --- !u!61 &3490457534590807427
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -194,7 +193,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 0.97}
+  m_Size: {x: 0.2, y: 0.97}
   m_EdgeRadius: 0
 --- !u!50 &3385216404687458839
 Rigidbody2D:
