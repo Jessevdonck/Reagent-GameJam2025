@@ -12,6 +12,7 @@ public class CableConnector : MonoBehaviour
     private bool isDragging;
     private GameObject wireInstance;
     private Camera mainCamera;
+    public AudioClip wrong;
     
     private Transform wireParent;
     private void Start()
@@ -116,6 +117,7 @@ public class CableConnector : MonoBehaviour
                 }
                 else
                 {
+                    SoundManager.Instance.PlaySound(wrong, 0.6f);
                     Debug.Log("❌ Wrong connection.");
                 }
                 FindObjectOfType<CableManager>().CheckWinCondition();

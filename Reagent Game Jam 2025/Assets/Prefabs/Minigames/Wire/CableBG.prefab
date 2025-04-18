@@ -125,6 +125,7 @@ MonoBehaviour:
   correct: {fileID: 0}
   connected: {fileID: 0}
   wire: {fileID: 6971635193016639605, guid: b2c2c0d8ff9e5a940a20be3fb5f44852, type: 3}
+  wrong: {fileID: 8300000, guid: 82f0f8c7d69d8e445a23b8743a9e08a1, type: 3}
 --- !u!1 &1977050828573848121
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +220,7 @@ MonoBehaviour:
   correct: {fileID: 0}
   connected: {fileID: 0}
   wire: {fileID: 6971635193016639605, guid: b2c2c0d8ff9e5a940a20be3fb5f44852, type: 3}
+  wrong: {fileID: 8300000, guid: 82f0f8c7d69d8e445a23b8743a9e08a1, type: 3}
 --- !u!1 &1988673517038128614
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +315,7 @@ MonoBehaviour:
   correct: {fileID: 0}
   connected: {fileID: 0}
   wire: {fileID: 6971635193016639605, guid: b2c2c0d8ff9e5a940a20be3fb5f44852, type: 3}
+  wrong: {fileID: 8300000, guid: 82f0f8c7d69d8e445a23b8743a9e08a1, type: 3}
 --- !u!1 &2768725582627629701
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +410,7 @@ MonoBehaviour:
   correct: {fileID: 0}
   connected: {fileID: 0}
   wire: {fileID: 6971635193016639605, guid: b2c2c0d8ff9e5a940a20be3fb5f44852, type: 3}
+  wrong: {fileID: 8300000, guid: 82f0f8c7d69d8e445a23b8743a9e08a1, type: 3}
 --- !u!1 &3710607425070786927
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +505,7 @@ MonoBehaviour:
   correct: {fileID: 0}
   connected: {fileID: 0}
   wire: {fileID: 6971635193016639605, guid: b2c2c0d8ff9e5a940a20be3fb5f44852, type: 3}
+  wrong: {fileID: 8300000, guid: 82f0f8c7d69d8e445a23b8743a9e08a1, type: 3}
 --- !u!1 &3978415116877519679
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +600,7 @@ MonoBehaviour:
   correct: {fileID: 0}
   connected: {fileID: 0}
   wire: {fileID: 6971635193016639605, guid: b2c2c0d8ff9e5a940a20be3fb5f44852, type: 3}
+  wrong: {fileID: 8300000, guid: 82f0f8c7d69d8e445a23b8743a9e08a1, type: 3}
 --- !u!1 &6264994274596993351
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +695,7 @@ MonoBehaviour:
   correct: {fileID: 0}
   connected: {fileID: 0}
   wire: {fileID: 6971635193016639605, guid: b2c2c0d8ff9e5a940a20be3fb5f44852, type: 3}
+  wrong: {fileID: 8300000, guid: 82f0f8c7d69d8e445a23b8743a9e08a1, type: 3}
 --- !u!1 &6331987326652792407
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,6 +790,7 @@ MonoBehaviour:
   correct: {fileID: 0}
   connected: {fileID: 0}
   wire: {fileID: 6971635193016639605, guid: b2c2c0d8ff9e5a940a20be3fb5f44852, type: 3}
+  wrong: {fileID: 8300000, guid: 82f0f8c7d69d8e445a23b8743a9e08a1, type: 3}
 --- !u!1 &6636730973676907173
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,6 +885,7 @@ MonoBehaviour:
   correct: {fileID: 0}
   connected: {fileID: 0}
   wire: {fileID: 6971635193016639605, guid: b2c2c0d8ff9e5a940a20be3fb5f44852, type: 3}
+  wrong: {fileID: 8300000, guid: 82f0f8c7d69d8e445a23b8743a9e08a1, type: 3}
 --- !u!1 &8252687405995487866
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,6 +980,7 @@ MonoBehaviour:
   correct: {fileID: 0}
   connected: {fileID: 0}
   wire: {fileID: 6971635193016639605, guid: b2c2c0d8ff9e5a940a20be3fb5f44852, type: 3}
+  wrong: {fileID: 8300000, guid: 82f0f8c7d69d8e445a23b8743a9e08a1, type: 3}
 --- !u!1001 &9193036183631750146
 PrefabInstance:
   m_ObjectHideFlags: 0
