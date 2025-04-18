@@ -173,6 +173,6 @@ public class PoopGame : MonoBehaviour, IMinigame
     {
         yield return new WaitForSeconds(2f);
         StopAllCoroutines();
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

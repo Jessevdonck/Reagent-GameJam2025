@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
                     break;
                 }
 
-                if (hit.CompareTag("Minigame"))
+                if (hit.CompareTag("MinigameInteractable"))
                 {
                     var mini = hit.GetComponent<MinigameInteractable>();
                     if (mini != null)

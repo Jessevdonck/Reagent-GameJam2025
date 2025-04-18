@@ -17,7 +17,7 @@ namespace MiniGame.LightsSwitching
         private static LightsGame instance;
         public MinigameInteractable interactableParent;
         private int minigameID = 1;
-        
+        [SerializeField] private GameObject reset;
         public static LightsGame GetInstance()
         {
             return instance;
@@ -142,6 +142,7 @@ namespace MiniGame.LightsSwitching
             {
                 Destroy(o);
             }
+            Destroy(reset);
             Destroy(this);
         }
 
