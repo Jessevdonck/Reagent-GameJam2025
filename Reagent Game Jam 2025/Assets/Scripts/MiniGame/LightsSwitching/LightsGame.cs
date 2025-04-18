@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace MiniGame.LightsSwitching
 {
-    public class LightsGame : MonoBehaviour
+    public class LightsGame : MonoBehaviour, IMinigame
     {
         [SerializeField] private GameObject light;
         [SerializeField] private Transform boardParent;
@@ -14,6 +15,7 @@ namespace MiniGame.LightsSwitching
         private Light[][] lights;
         private int steps = 5;
         private static LightsGame instance;
+        public MinigameInteractable interactableParent;
         private int minigameID = 1;
 
         public static LightsGame GetInstance()
@@ -73,6 +75,13 @@ namespace MiniGame.LightsSwitching
             {
                 Debug.Log("KLAAR");
                 LevelManager.Instance.MarkMinigameComplete(1);
+
+                if (interactableParent != null)
+                {
+                    interactableParent.OnMinigameCompleted();
+                }
+                
+                StartCoroutine(EndMinigame());
             }
         }
 
@@ -120,6 +129,18 @@ namespace MiniGame.LightsSwitching
             }
             
             return true;
+        }
+        
+        public void SetParentInteractable(MinigameInteractable interactable)
+        {
+            interactableParent = interactable;
+        }
+        
+        private IEnumerator EndMinigame()
+        {
+            yield return new WaitForSeconds(2f);
+            StopAllCoroutines();
+            Destroy(this.gameObject);
         }
     }
 }

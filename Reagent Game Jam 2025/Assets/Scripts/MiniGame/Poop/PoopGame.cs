@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PoopGame : MonoBehaviour
+public class PoopGame : MonoBehaviour, IMinigame
 {
     [SerializeField] private GameObject plunger;
     [SerializeField] private List<GameObject> poops;
@@ -13,7 +13,7 @@ public class PoopGame : MonoBehaviour
     [SerializeField] private float movementRange = 3f;
 
     private static PoopGame instance;
-
+    public MinigameInteractable interactableParent;
     public static PoopGame GetInstance()
     {
         return instance;
@@ -127,9 +127,27 @@ public class PoopGame : MonoBehaviour
         }
     }
 
-    void GameCompleted()
+    private void GameCompleted()
     {
-        isGameCompleted = true;
-        Debug.Log("Game Completed!");
+        LevelManager.Instance.MarkMinigameComplete(4);
+
+        if (interactableParent != null)
+        {
+            interactableParent.OnMinigameCompleted();
+        }
+        
+        StartCoroutine(EndMinigame());
+    }
+    
+    public void SetParentInteractable(MinigameInteractable interactable)
+    {
+        interactableParent = interactable;
+    }
+    
+    private IEnumerator EndMinigame()
+    {
+        yield return new WaitForSeconds(2f);
+        StopAllCoroutines();
+        this.gameObject.SetActive(false);
     }
 }

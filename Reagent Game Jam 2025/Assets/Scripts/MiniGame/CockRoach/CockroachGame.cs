@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -7,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace MiniGame.CockRoach
 {
-    public class CockroachGame : MonoBehaviour
+    public class CockroachGame : MonoBehaviour, IMinigame
     {
         [SerializeField] Transform topLeft;
         [SerializeField] Transform bottomRight;
@@ -15,6 +16,7 @@ namespace MiniGame.CockRoach
         [SerializeField] private GameObject cockroach;
         private List<GameObject> cockroaches;
         public bool isGameCompleted;
+        public MinigameInteractable interactableParent;
         private void Start()
         {
             isGameCompleted = false;
@@ -38,6 +40,15 @@ namespace MiniGame.CockRoach
         private void GameCompleted()
         {
             isGameCompleted = true;
+    
+            LevelManager.Instance.MarkMinigameComplete(3); 
+
+            if (interactableParent != null)
+            {
+                interactableParent.OnMinigameCompleted();
+            }
+            
+            StartCoroutine(EndMinigame()); 
         }
         public Transform[] GetTransforms()
         {
@@ -63,6 +74,18 @@ namespace MiniGame.CockRoach
         private void Awake()
         {
             instance = this;
+        }
+        
+        public void SetParentInteractable(MinigameInteractable interactable)
+        {
+            interactableParent = interactable;
+        }
+        
+        private IEnumerator EndMinigame()
+        {
+            yield return new WaitForSeconds(2f);
+            StopAllCoroutines();
+            this.gameObject.SetActive(false);
         }
     }
 }

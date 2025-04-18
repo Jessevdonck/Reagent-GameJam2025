@@ -1,12 +1,14 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CableManager : MonoBehaviour
+public class CableManager : MonoBehaviour, IMinigame
 {
     [SerializeField] private List<CableConnector> topRow;
     [SerializeField] private List<CableConnector> bottomRow;
     private bool gameCompleted;
     private int totalPairs;
+    public MinigameInteractable interactableParent;
 
     private void Start()
     {
@@ -52,6 +54,15 @@ public class CableManager : MonoBehaviour
 
         Debug.Log("🎉 All cables correctly connected!");
         gameCompleted = true;
+        
+        LevelManager.Instance.MarkMinigameComplete(3); 
+
+        if (interactableParent != null)
+        {
+            interactableParent.OnMinigameCompleted();
+        }
+
+        StartCoroutine(EndMinigame());
     }
 
     public bool GetGameCompleted()
@@ -59,7 +70,15 @@ public class CableManager : MonoBehaviour
         return gameCompleted;
     }
     
+    public void SetParentInteractable(MinigameInteractable interactable)
+    {
+        interactableParent = interactable;
+    }
     
-    
-    
+    private IEnumerator EndMinigame()
+    {
+        yield return new WaitForSeconds(2f);
+        StopAllCoroutines();
+        Destroy(this.gameObject);
+    }
 }
