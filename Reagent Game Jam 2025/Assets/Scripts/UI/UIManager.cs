@@ -5,10 +5,12 @@ public class UIManager : MonoBehaviour
 {
     public GameObject settingsScreen;
     public GameObject menuScreen;
+    public GameObject levelSelectionScreen;
 
-    public void PlayGame()
+    public void Play()
     {
-        SceneManager.LoadScene("Jesse");
+        menuScreen.SetActive(false);
+        levelSelectionScreen.SetActive(true);
     }
 
     public void ShowSettings()
@@ -21,6 +23,16 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("Game wordt gesloten!");
         Application.Quit();
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Jesse");
+    }
+
+    public void Casino()
+    {
+        SceneManager.LoadScene("CasinoScene");
     }
 
     public void CloseSettings()

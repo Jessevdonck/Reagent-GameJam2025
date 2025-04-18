@@ -4,9 +4,6 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    public AudioClip hoverSound;
-    public AudioClip clickSound;
-
     private AudioSource audioSource;
 
     private void Awake()
@@ -14,7 +11,7 @@ public class SoundManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); 
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -24,16 +21,10 @@ public class SoundManager : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
     }
-
-    public void PlayHover()
+    
+    public void PlaySound(AudioClip clip, float volume = 1f)
     {
-        if (hoverSound != null)
-            audioSource.PlayOneShot(hoverSound);
-    }
-
-    public void PlayClick()
-    {
-        if (clickSound != null)
-            audioSource.PlayOneShot(clickSound);
+        if (clip != null)
+            audioSource.PlayOneShot(clip, volume);
     }
 }

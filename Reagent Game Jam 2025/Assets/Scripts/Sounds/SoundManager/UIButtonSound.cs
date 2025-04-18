@@ -3,13 +3,18 @@ using UnityEngine.EventSystems;
 
 public class UIButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
+    [SerializeField] private AudioClip hoverSound;
+    [SerializeField] private AudioClip clickSound;
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        SoundManager.Instance?.PlayHover();
+        if (hoverSound != null)
+            SoundManager.Instance?.PlaySound(hoverSound);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        SoundManager.Instance?.PlayClick();
+        if (clickSound != null)
+            SoundManager.Instance?.PlaySound(clickSound);
     }
 }

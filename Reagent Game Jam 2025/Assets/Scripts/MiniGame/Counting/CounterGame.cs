@@ -15,6 +15,7 @@ namespace MiniGame
         public float xSpacing = 1.25f;
         public float ySpacing = 1.25f;
         [SerializeField] private GameObject wrongScreen;
+        [SerializeField] private Transform boardParent;
         
         private static CounterGame instance;
         private int count;
@@ -106,7 +107,7 @@ namespace MiniGame
                     startPosition.y - row * ySpacing
                 );
                 
-                GameObject instance = Instantiate(prefabs[numbers[i]], spawnPos, Quaternion.identity);
+                GameObject instance = Instantiate(prefabs[numbers[i]], spawnPos, Quaternion.identity, boardParent);
                 gameObjects.Add(instance);
                 CounterComponent counter = instance.GetComponent<CounterComponent>();
                 

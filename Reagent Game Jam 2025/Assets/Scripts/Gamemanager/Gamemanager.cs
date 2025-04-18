@@ -4,12 +4,13 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    
 
     [Header("Player Stats")]
-    public int money = 0;
-
-    [Header("UI Elements")]
-    public TMP_Text moneyText; 
+    public int money = 0; 
+    
+    public delegate void MoneyChanged();
+    public static event MoneyChanged OnMoneyChanged;
 
     private void Awake()
     {
@@ -22,24 +23,14 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        UpdateMoneyUI(); 
+        
     }
-
-    private void Start()
-    {
-        if (moneyText == null)
-        {
-            
-        }
-            
-    }
-
+    
     public void AddMoney(int amount)
     {
         money += amount;
-        UpdateMoneyUI(); 
         Debug.Log("Geld toegevoegd: +" + amount + " euro. Totaal: " + money);
+        OnMoneyChanged?.Invoke();
     }
 
     public bool HasEnoughMoney(int amount)
@@ -52,22 +43,14 @@ public class GameManager : MonoBehaviour
         if (HasEnoughMoney(amount))
         {
             money -= amount;
-            UpdateMoneyUI(); 
             Debug.Log("Geld gespendeerd: -" + amount + " euro. Totaal: " + money);
+            OnMoneyChanged?.Invoke();
             return true;
         }
         else
         {
             Debug.Log("Niet genoeg geld!");
             return false;
-        }
-    }
-
-    private void UpdateMoneyUI()
-    {
-        if (moneyText != null)
-        {
-            moneyText.text = "€" + money.ToString();  
         }
     }
 }
