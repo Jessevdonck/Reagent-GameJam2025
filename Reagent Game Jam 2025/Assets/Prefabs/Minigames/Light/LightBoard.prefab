@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9014410451116741366}
   m_Layer: 0
   m_Name: LightBoard
-  m_TagString: Untagged
+  m_TagString: Minigame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,3 +102,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   light: {fileID: 2466039244537816246, guid: b0e41132b5a75cf41b42f849b5eb67e7, type: 3}
   boardParent: {fileID: 8313039460303902838}
+  interactableParent: {fileID: 0}

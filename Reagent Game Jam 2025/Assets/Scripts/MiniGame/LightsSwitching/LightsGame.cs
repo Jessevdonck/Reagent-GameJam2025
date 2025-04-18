@@ -17,7 +17,7 @@ namespace MiniGame.LightsSwitching
         private static LightsGame instance;
         public MinigameInteractable interactableParent;
         private int minigameID = 1;
-
+        
         public static LightsGame GetInstance()
         {
             return instance;
@@ -135,7 +135,16 @@ namespace MiniGame.LightsSwitching
         {
             interactableParent = interactable;
         }
-        
+
+        public void SelfDestruct()
+        {
+            foreach (GameObject o in gameObjects)
+            {
+                Destroy(o);
+            }
+            Destroy(this);
+        }
+
         private IEnumerator EndMinigame()
         {
             yield return new WaitForSeconds(2f);

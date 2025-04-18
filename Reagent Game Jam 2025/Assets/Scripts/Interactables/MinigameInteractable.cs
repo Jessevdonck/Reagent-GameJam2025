@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using MiniGame;
 using Unity.Mathematics;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
     
     [Header("Minigame Settings")]
     public GameObject minigamePrefab;
-    
+    Collider2D[] worldColliders;
     [SerializeField] private int minigameID;
     [SerializeField] private GameObject exclamation;
 
@@ -25,6 +26,7 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
 
     void OpenMinigame()
     {
+        PlayerController.GetInstance().SetMinigame(true);
         Vector3 worldCenter = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 10f));
 
         activeMinigame = Instantiate(minigamePrefab, worldCenter,quaternion.identity);
@@ -33,6 +35,15 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
         {
             minigame.SetParentInteractable(this);
         }
+        
+        worldColliders = FindObjectsOfType<Collider2D>();
+        foreach (var col in worldColliders)
+        {
+            if (!col.gameObject.CompareTag("Minigame"))
+                col.enabled = false;
+        }
+        
+        
     }
     
     public void DisableInteractable()
@@ -49,6 +60,14 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
     {
         if (activeMinigame != null)
         {
+            PlayerController.GetInstance().SetMinigame(false);
+            IMinigame im = activeMinigame.GetComponent<IMinigame>();
+            if (im != null)
+            {
+                im.SelfDestruct();
+            }
+            
+            
             Destroy(activeMinigame);
             activeMinigame = null;
 
@@ -56,6 +75,15 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
             {
                 gameObject.SetActive(false);
             }
+            
+            foreach (var col in worldColliders)
+            {
+                col.enabled = true;
+            }
+
+           
+           
+
 
             // if (activeMinigame.GetComponent<CounterGame>())
             // {

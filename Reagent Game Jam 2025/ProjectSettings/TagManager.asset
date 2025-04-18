@@ -10,6 +10,7 @@ TagManager:
   - Dialogue
   - UI
   - Poop
+  - Wire
   layers:
   - Default
   - TransparentFX

@@ -12,13 +12,18 @@ public class CableConnector : MonoBehaviour
     private bool isDragging;
     private GameObject wireInstance;
     private Camera mainCamera;
+    
+    private Transform wireParent;
     private void Start()
     {
         isDragging = false;
         correctConnected = false;
         mainCamera = Camera.main;
     }
-    
+    public void SetWireParent(Transform parent)
+    {
+        wireParent = parent;
+    }
     
 
     private void Update()
@@ -45,6 +50,11 @@ public class CableConnector : MonoBehaviour
         wireInstance.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
     }
 
+    public void destroyWire()
+    {
+        if(!wireInstance) return;
+        Destroy(wireInstance);
+    }
 
     private void OnMouseDown()
     {
@@ -57,7 +67,7 @@ public class CableConnector : MonoBehaviour
         }
         if(isDragging)return;
         isDragging = true;
-        wireInstance = Instantiate(wire, transform.position, quaternion.identity);
+        wireInstance = Instantiate(wire, transform.position, quaternion.identity, wireParent);
     }
     
     public void SetCorrect(CableConnector other)

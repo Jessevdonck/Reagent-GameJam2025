@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3107171335698741645}
   m_Layer: 0
   m_Name: CountingButton3
-  m_TagString: Untagged
+  m_TagString: Minigame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

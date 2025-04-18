@@ -9,7 +9,7 @@ public class CableManager : MonoBehaviour, IMinigame
     private bool gameCompleted;
     private int totalPairs;
     public MinigameInteractable interactableParent;
-
+    [SerializeField] private Transform wireParent;
     private void Start()
     {
         gameCompleted = false;
@@ -40,7 +40,10 @@ public class CableManager : MonoBehaviour, IMinigame
         for (int i = 0; i < totalPairs; i++)
         {
             topRow[i].SetCorrect(shuffledRight[i]);
+            topRow[i].SetWireParent(wireParent);
+    
             shuffledRight[i].SetCorrect(topRow[i]);
+            shuffledRight[i].SetWireParent(wireParent);
         }
     }
 
@@ -61,7 +64,7 @@ public class CableManager : MonoBehaviour, IMinigame
         {
             interactableParent.OnMinigameCompleted();
         }
-
+        SelfDestruct();
         StartCoroutine(EndMinigame());
     }
 
@@ -74,7 +77,21 @@ public class CableManager : MonoBehaviour, IMinigame
     {
         interactableParent = interactable;
     }
-    
+
+    public void SelfDestruct()
+    {
+        foreach (CableConnector connector in topRow)
+        {
+            connector.destroyWire();
+            
+        }
+        foreach (CableConnector connector in bottomRow)
+        {
+            connector.destroyWire();
+            
+        }
+    }
+
     private IEnumerator EndMinigame()
     {
         yield return new WaitForSeconds(2f);

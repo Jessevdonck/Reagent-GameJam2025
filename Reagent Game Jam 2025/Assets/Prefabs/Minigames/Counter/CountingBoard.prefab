@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6660865737688636447}
   m_Layer: 0
   m_Name: CountingBoard
-  m_TagString: Untagged
+  m_TagString: Minigame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,3 +131,4 @@ MonoBehaviour:
   ySpacing: 1.25
   wrongScreen: {fileID: 3144101023060763935, guid: cbb46d2c9a33c8e45a09d2e21ef5ebdf, type: 3}
   boardParent: {fileID: 365833501242981035}
+  interactableParent: {fileID: 0}

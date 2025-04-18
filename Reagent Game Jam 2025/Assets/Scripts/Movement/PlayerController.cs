@@ -1,4 +1,7 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,14 +20,31 @@ public class PlayerController : MonoBehaviour
     private bool nearGrandma = false;
     public float interactRange = 1f;
     public KeyCode interactKey = KeyCode.E;
-
+    private bool inMinigame;
     private MinigameInteractable activeInteractable = null;
+    private static PlayerController instance;
 
-    void Start()
+    public static PlayerController GetInstance()
     {
-        audioSource = GetComponent<AudioSource>(); 
+        return instance;
     }
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public void SetMinigame(bool f)
+    {
+        inMinigame = f;
+    }
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        inMinigame = false;
+    }
+    
+    
     void Update()
     {
         // E om door dialoog te klikken
@@ -36,14 +56,9 @@ public class PlayerController : MonoBehaviour
             }
             return;
         }
-
+        
         // Beweging
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        animator.SetFloat("MoveX", movement.x);
-        animator.SetFloat("MoveY", movement.y);
-        animator.SetBool("IsMoving", movement.sqrMagnitude > 0.01f);
+        
 
         // Interactie met E
         if (Input.GetKeyDown(interactKey))
@@ -79,6 +94,19 @@ public class PlayerController : MonoBehaviour
                 activeInteractable = null;
             }
         }
+
+        if (inMinigame)
+        {
+            movement.y = 0;
+            movement.x = 0;
+            return;
+        }
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("MoveX", movement.x);
+        animator.SetFloat("MoveY", movement.y);
+        animator.SetBool("IsMoving", movement.sqrMagnitude > 0.01f);
 
         if (movement.sqrMagnitude > 0.01f && Time.time > nextStepTime) 
         {

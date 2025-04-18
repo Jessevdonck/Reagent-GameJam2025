@@ -130,7 +130,8 @@ public class PoopGame : MonoBehaviour, IMinigame
             GameCompleted();
         }
     }
-
+    
+    
     private void GameCompleted()
     {
         LevelManager.Instance.MarkMinigameComplete(4);
@@ -162,6 +163,12 @@ public class PoopGame : MonoBehaviour, IMinigame
         return dullSound;
     }
     
+
+    public void SelfDestruct()
+    {
+        Destroy(this);
+    }
+
     private IEnumerator EndMinigame()
     {
         yield return new WaitForSeconds(2f);

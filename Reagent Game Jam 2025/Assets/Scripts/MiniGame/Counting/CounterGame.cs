@@ -183,5 +183,10 @@ namespace MiniGame
         {
             interactableParent = interactable;
         }
+
+        public void SelfDestruct()
+        {
+            Destroy(this);
+        }
     }
 }

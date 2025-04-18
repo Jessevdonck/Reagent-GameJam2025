@@ -26,8 +26,9 @@ namespace MiniGame.CockRoach
             cockroaches = new List<GameObject>();
             for (int i = 0; i < amount; i++)
             {
-                Instantiate(cockroach, PickRandomTarget(), quaternion.identity);
                 
+                GameObject cock = Instantiate(cockroach, PickRandomTarget(), quaternion.identity);
+                cockroaches.Add(cock);
             }
         }
 
@@ -93,7 +94,16 @@ namespace MiniGame.CockRoach
         {
             interactableParent = interactable;
         }
-        
+
+        public void SelfDestruct()
+        {
+            foreach (GameObject c in cockroaches)
+            {
+                Destroy(c);
+            }
+            Destroy(this);
+        }
+
         private IEnumerator EndMinigame()
         {
             yield return new WaitForSeconds(2f);
