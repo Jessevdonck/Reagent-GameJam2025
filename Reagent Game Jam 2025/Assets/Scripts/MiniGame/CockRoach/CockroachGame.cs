@@ -55,7 +55,7 @@ namespace MiniGame.CockRoach
         {
             isGameCompleted = true;
     
-            LevelManager.Instance.MarkMinigameComplete(3); 
+            LevelManager.Instance.MarkMinigameComplete(2); 
 
             if (interactableParent != null)
             {

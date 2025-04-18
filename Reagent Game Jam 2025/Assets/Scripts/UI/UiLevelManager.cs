@@ -8,7 +8,6 @@ public class UiLevelManager : MonoBehaviour
     public void OpenMenu()
     {
         uiMenuPanel.SetActive(true);
-        Time.timeScale = 0f;
     }
     
     public void BackToMainMenu()
@@ -19,6 +18,5 @@ public class UiLevelManager : MonoBehaviour
     public void CloseMenu()
     {
         uiMenuPanel.SetActive(false);
-        Time.timeScale = 1f;
     }
 }

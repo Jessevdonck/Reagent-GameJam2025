@@ -50,17 +50,20 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!inMinigame)
         {
-            if (uiMenuController != null)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (uiMenuController.uiMenuPanel.activeSelf)
+                if (uiMenuController != null)
                 {
-                    uiMenuController.CloseMenu(); // Sluit het menu
-                }
-                else
-                {
-                    uiMenuController.OpenMenu(); // Open het menu
+                    if (uiMenuController.uiMenuPanel.activeSelf)
+                    {
+                        uiMenuController.CloseMenu(); // Sluit het menu
+                    }
+                    else
+                    {
+                        uiMenuController.OpenMenu(); // Open het menu
+                    }
                 }
             }
         }
