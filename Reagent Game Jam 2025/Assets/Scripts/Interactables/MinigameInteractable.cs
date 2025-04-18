@@ -28,6 +28,11 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
         Vector3 worldCenter = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 10f));
 
         activeMinigame = Instantiate(minigamePrefab, worldCenter,quaternion.identity);
+        IMinigame minigame = activeMinigame.GetComponent<IMinigame>();
+        if (minigame != null)
+        {
+            minigame.SetParentInteractable(this);
+        }
     }
     
     public void DisableInteractable()
@@ -57,5 +62,12 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
             //     DestroyAllButtons();
             // }
         }
+    }
+    
+    public void OnMinigameCompleted()
+    {
+        isCompleted = true;
+        exclamation.SetActive(false); // ⛔️ zet het uitroepteken uit
+        CloseMinigame();              // sluit de minigame
     }
 }

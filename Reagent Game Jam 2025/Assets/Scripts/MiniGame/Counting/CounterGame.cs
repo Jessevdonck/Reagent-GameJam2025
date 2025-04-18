@@ -7,9 +7,11 @@ using Random = UnityEngine.Random;
 
 namespace MiniGame
 {
-    public class CounterGame : MonoBehaviour
+    public class CounterGame : MonoBehaviour, IMinigame
     {
         [SerializeField] private List<GameObject> prefabs;
+        [SerializeField] private List<AudioClip> correctSounds;
+        [SerializeField] private AudioClip wrongSound;
         private List<GameObject> gameObjects;
         private Vector2 startPosition = new Vector2(-3.125f, 0.625f);
         public float xSpacing = 1.25f;
@@ -20,7 +22,10 @@ namespace MiniGame
         private static CounterGame instance;
         private int count;
         
+        public MinigameInteractable interactableParent;
+        
         private int minigameID = 0;
+        
         
         
         public int getCount()
@@ -41,6 +46,13 @@ namespace MiniGame
             {
                 Debug.Log("finish");
                 LevelManager.Instance.MarkMinigameComplete(0);
+                
+                if (interactableParent != null)
+                {
+                    interactableParent.OnMinigameCompleted();
+                }
+                
+                StartCoroutine(EndMinigame());
             }
         }
 
@@ -138,10 +150,13 @@ namespace MiniGame
         public void nextCount()
         {
             count += 1;
+            
+            SoundManager.Instance.PlaySound(correctSounds[count - 1]);
         }
 
         public void wrongCount()
         {
+            SoundManager.Instance.PlaySound(wrongSound);
             StartCoroutine(DisableClickTemporarily());
         }
         
@@ -156,6 +171,17 @@ namespace MiniGame
             
         }
 
+        private IEnumerator EndMinigame()
+        {
+            yield return new WaitForSeconds(2f);
+            StopAllCoroutines();
+            destroyAllButtons();
+            this.gameObject.SetActive(false);
+        }
         
+        public void SetParentInteractable(MinigameInteractable interactable)
+        {
+            interactableParent = interactable;
+        }
     }
 }
